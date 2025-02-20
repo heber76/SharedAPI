@@ -16,11 +16,13 @@ namespace SharedAPI.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
 
+        public DbSet<Employee> Employees { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<User>().HasIndex(x => x.Email).IsUnique();
+            modelBuilder.Entity<Company>().HasIndex(x => x.Name).IsUnique();
         }
     }
 }
